@@ -8,17 +8,40 @@ use App\Project;
 
 class ProjectsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $projects = Project::all();
 
-        return view ('projects.index', compact('projects'));
+        return view('projects.index', compact('projects'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('projects.create');
     }
 
-    public function store(){
+    public function show()
+    {
+
+    }
+
+    public function edit()
+    {
+
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function destroy()
+    {
+
+    }
+
+    public function store()
+    {
         $project = new Project();
 
         $project->title = request('title');
