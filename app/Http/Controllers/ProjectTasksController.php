@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use App\Project;
+use App\Task;
 
 class ProjectTasksController extends Controller
 {
@@ -17,9 +17,16 @@ class ProjectTasksController extends Controller
 
     public function update(Task $task)
     {
-        $task->update([
-            'completed' => request()->has('completed')
-        ]);
+        // if (request()->has('completed')) {
+        //     $task->complete();
+        // } else {
+        //     $task->incomplete();
+        // }
+
+        // request()->has('complete') ? $task->complete() : $task->incomplete();
+
+        $method = request()->has('completed') ? 'complete' : 'incomplete';
+        $task->$method;
 
         return back();
     }
